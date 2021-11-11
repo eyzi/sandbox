@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.1.0 (2021-11-11)
+
+
+### Features
+
+* Retesting semver ([fcfd220](https://github.com/eyzi/sandbox/commit/fcfd2203492e818a4b6dbf709cba714287f82bc8))
+
 ## [1.0.0](https://github.com/eyzi/sandbox/compare/v0.0.13...v1.0.0) (2021-11-11)
 
 ### [0.0.13](https://github.com/eyzi/sandbox/compare/v0.0.12...v0.0.13) (2021-11-11)
