@@ -7,6 +7,9 @@
     "test": "mocha",
     "release": "npx semantic-release"
   },
+  "release": {
+    "branches": ["main", "next"]
+  },
   "mocha": {
     "require": [
       "ts-node/register"
