@@ -29,6 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Checkout
+        with:
+          token: ${{ secrets.AUTOVERSION_TOKEN }}
       - uses: borales/actions-yarn@v2.3.0
         name: Install dependencies
         with:
