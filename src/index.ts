@@ -1,4 +1,4 @@
-export const RETURN_VALUE = "Why is standard-version not working though";
+export const RETURN_VALUE = "Please work";
 
 async function run() {
   return RETURN_VALUE;
