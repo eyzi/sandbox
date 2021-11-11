@@ -1,4 +1,4 @@
-export const RETURN_VALUE = "Autoversioned Value";
+export const RETURN_VALUE = "CI/CD is suffering";
 
 async function run() {
   return RETURN_VALUE;
