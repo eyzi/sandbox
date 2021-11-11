@@ -1,4 +1,4 @@
-const RETURN_VALUE = "Yes";
+const RETURN_VALUE = "New Value";
 
 async function run() {
   return RETURN_VALUE;
