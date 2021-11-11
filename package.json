@@ -16,6 +16,9 @@
     ],
     "spec": "src/**/*.spec.ts"
   },
+  "standard-version": {
+    "sign": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eyzi/sandbox.git"
