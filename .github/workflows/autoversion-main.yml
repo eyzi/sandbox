@@ -26,6 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Checkout
+      - name: Debug GPG
+        run: which gpg && ls -la ~/.gnupg
       - name: Import GPG
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@v4.1.0
@@ -39,8 +41,6 @@ jobs:
           git_tag_gpgsign: true
           git_committer_name: ${{ secrets.COMMITTER_NAME }}
           git_committer_email: ${{ secrets.COMMITTER_EMAIL }}
-      - name: Get gpg
-        run: which gpg
       - name: Configure committer
         run: |
           git config --global gpg.program $(which gpg)
