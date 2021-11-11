@@ -31,4 +31,4 @@ jobs:
           git config user.name "${{ secrets.COMMITTER_NAME }}"
           git config user.email "${{ secrets.COMMITTER_EMAIL }}"
       - name: Bump version
-        uses: qzb/standard-version@v1
+        uses: qzb/standard-version@v1.0.1
