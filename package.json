@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "release": "npx standard-version --sign"
+    "release": "npx standard-version"
   },
   "mocha": {
     "require": [
@@ -15,9 +15,6 @@
       "ts"
     ],
     "spec": "src/**/*.spec.ts"
-  },
-  "standard-version": {
-    "sign": true
   },
   "repository": {
     "type": "git",
