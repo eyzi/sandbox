@@ -28,7 +28,16 @@ jobs:
         name: Checkout
       - name: Configure committer
         run: |
-          git config user.name "${{ secrets.COMMITTER_NAME }}"
-          git config user.email "${{ secrets.COMMITTER_EMAIL }}"
-      - name: Bump version
-        uses: qzb/standard-version@v1.0.1
+          git config --local user.name "${{ secrets.COMMITTER_NAME }}"
+          git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
+      - uses: borales/actions-yarn@v2.3.0
+        name: Install dependencies
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@v2.3.0
+        name: Bump version
+        with:
+          cmd: release
+      - name: Publish
+        run: |
+          git push --follow-tags origin main
