@@ -24,10 +24,6 @@ jobs:
     runs-on: self-hosted
     needs: test
     steps:
-      - name: Configure GPG Key
-        run: gpg -v --import <(echo "$GPG_PRIVATE_KEY")
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Configure committer
         run: |
           git config --local gpg.program $(which gpg)
