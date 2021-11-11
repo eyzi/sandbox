@@ -30,6 +30,14 @@ jobs:
         run: |
           git config --local user.name "${{ secrets.COMMITTER_NAME }}"
           git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
+      - name: Import GPG
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v4.1.0
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
       - uses: borales/actions-yarn@v2.3.0
         name: Install dependencies
         with:
