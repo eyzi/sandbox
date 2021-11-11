@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/eyzi/sandbox/compare/v0.0.12...v0.0.13) (2021-11-11)
+
+
+### Features
+
+* New test value ([8c69327](https://github.com/eyzi/sandbox/commit/8c693271c3d974c8abebb69db80849fb8eb4c8ff))
+
 ### [0.0.12](https://github.com/eyzi/sandbox/compare/v0.0.11...v0.0.12) (2021-11-11)
 
 ### 0.0.11 (2021-11-11)
