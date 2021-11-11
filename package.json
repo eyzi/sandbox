@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "version": "standard-version --sign"
   },
   "mocha": {
     "require": [
