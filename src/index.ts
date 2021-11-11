@@ -1,4 +1,4 @@
-const RETURN_VALUE = "New Value";
+export const RETURN_VALUE = "Autoversioned Value";
 
 async function run() {
   return RETURN_VALUE;
