@@ -28,6 +28,7 @@ jobs:
         name: Checkout
       - name: Configure committer
         run: |
+          git config --global gpg.program $(which gpg)
           git config --local user.name "${{ secrets.COMMITTER_NAME }}"
           git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
       - name: Import GPG
@@ -36,6 +37,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
+          git_config_global: true
           git_user_signingkey: true
           git_commit_gpgsign: true
           git_push_gpgsign: true
