@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.1.1 (2021-11-11)
+
+
+### Bug Fixes
+
+* Working semver ([041cb53](https://github.com/eyzi/sandbox/commit/041cb5386ee8190e473b1e52297c77319b67c4a3))
+
 ## 1.1.0 (2021-11-11)
 
 
