@@ -31,6 +31,7 @@ jobs:
         name: Checkout
         with:
           token: ${{ secrets.AUTOVERSION_TOKEN }}
+          fetch-depth: 0
       - uses: borales/actions-yarn@v2.3.0
         name: Install dependencies
         with:
