@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/eyzi/sandbox/compare/v1.2.1...v1.2.2) (2021-11-12)
+
+
+### Bug Fixes
+
+* Use ref_name for release_name ([844d888](https://github.com/eyzi/sandbox/commit/844d88850fc010e1584eb3b9c0320a73fef7bfdb))
+
 ### [1.2.1](https://github.com/eyzi/sandbox/compare/v1.2.0...v1.2.1) (2021-11-12)
 
 ## [1.2.0](https://github.com/eyzi/sandbox/compare/v1.1.2...v1.2.0) (2021-11-12)
