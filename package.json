@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "release": "npx standard-version --sign"
+    "release": "npx standard-version --sign",
+    "prerelease": "npx standard-version --sign --prerelease"
   },
   "mocha": {
     "require": [
