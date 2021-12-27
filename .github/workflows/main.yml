@@ -31,6 +31,7 @@ jobs:
     steps:
       - name: Bump and Publish
         run: |
+          killall gpg-agent
           git config --local user.signingkey "${{ secrets.GHA_DEPLOY_KEY }}"
           git config --local commit.gpgsign true
           git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
