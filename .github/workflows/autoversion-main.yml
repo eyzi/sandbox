@@ -9,10 +9,12 @@ jobs:
   test:
     name: Test New Release
     runs-on: self-hosted
-    if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
       - uses: actions/checkout@v2
         name: Checkout
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
       - uses: borales/actions-yarn@v2.3.0
         name: Install dependencies
         with:
@@ -25,24 +27,20 @@ jobs:
   version:
     name: Auto-Version
     runs-on: self-hosted
+    needs: [test]
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout
-        with:
-          token: ${{ secrets.AUTOVERSION_TOKEN }}
-          fetch-depth: 0
-      - uses: borales/actions-yarn@v2.3.0
-        name: Install dependencies
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        name: Run Test
-        with:
-          cmd: test
-      - uses: borales/actions-yarn@v2.3.0
-        name: Bump version
-        with:
-          cmd: release
-      - name: Publish
-        run: git push --follow-tags origin main
+      - name: Bump and Publish
+        env:
+          GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+        run: |
+          git config --local user.email "${{ COMMITTER_EMAIL }}"
+          git config --local user.name "${{ COMMITTER_NAME }}"
+          eval `ssh-agent -t 60 -s`
+          echo "$GHA_DEPLOY_KEY" | ssh-add -
+
+          mkdir -p ~/.ssh/
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          yarn release
+          git push --follow-tags origin main
