@@ -34,8 +34,8 @@ jobs:
         env:
           GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
         run: |
-          git config --local user.email "${{ COMMITTER_EMAIL }}"
-          git config --local user.name "${{ COMMITTER_NAME }}"
+          git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
+          git config --local user.name "${{ secrets.COMMITTER_NAME }}"
           eval `ssh-agent -t 60 -s`
           echo "$GHA_DEPLOY_KEY" | ssh-add -
 
