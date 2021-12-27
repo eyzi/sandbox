@@ -1,4 +1,4 @@
-export const RETURN_VALUE = "Please work";
+export const RETURN_VALUE = "Totally working";
 
 async function run() {
   return RETURN_VALUE;
