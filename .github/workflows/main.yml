@@ -30,9 +30,10 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
       - name: Bump and Publish
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
         run: |
-          killall gpg-agent
-          git config --local user.signingkey "${{ secrets.GHA_DEPLOY_KEY }}"
+          echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
           git config --local commit.gpgsign true
           git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
           git config --local user.name "${{ secrets.COMMITTER_NAME }}"
