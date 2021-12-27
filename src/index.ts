@@ -1,4 +1,4 @@
-export const RETURN_VALUE = "This has node types";
+export const RETURN_VALUE = "Please work";
 
 async function run() {
   return RETURN_VALUE;
