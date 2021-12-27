@@ -1,7 +1,7 @@
 {
   "name": "sandbox",
   "description": "a dummy's dummy repository",
-  "version": "1.3.0",
+  "version": "1.3.1-0",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
