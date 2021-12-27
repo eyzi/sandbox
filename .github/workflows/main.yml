@@ -36,6 +36,7 @@ jobs:
         run: |
           git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
           git config --local user.name "${{ secrets.COMMITTER_NAME }}"
+          git remote set-url origin "https://${{secrets.COMMITTER_NAME}}:${{secrets.AUTOVERSION_TOKEN}}@$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
           eval `ssh-agent -t 60 -s`
           echo "$GHA_DEPLOY_KEY" | ssh-add -
           yarn release
