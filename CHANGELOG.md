@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/eyzi/sandbox/compare/v1.4.1-0...v1.4.1) (2022-01-29)
+
 ### [1.4.1-0](https://github.com/eyzi/sandbox/compare/v1.4.0...v1.4.1-0) (2022-01-29)
 
 ## [1.4.0](https://github.com/eyzi/sandbox/compare/v1.4.0-0...v1.4.0) (2022-01-29)
