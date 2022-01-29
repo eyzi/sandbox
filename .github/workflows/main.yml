@@ -50,16 +50,16 @@ jobs:
     needs: [test]
     if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Get Version
+      - uses: martinbeentjes/npm-get-version-action@master
+        name: Get Package Version
         id: package_version
-        uses: martinbeentjes/npm-get-version-action@master
       - name: Set Image Tag
         id: image_tag
         run: |
           echo "::set-output name=tag_semver::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
-          echo "::set-output name=tag_latest::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
-      - name: Login to Docker Registry
-        uses: docker/login-action@v1
+          echo "::set-output name=tag_latest::${{ secrets.DOCKER_REGISTRY }}/sandbox:latest"
+      - uses: docker/login-action@v1
+        name: Login to Docker Registry
         with:
           registry: ${{ secrets.DOCKER_REGISTRY }}
           username: ${{ secrets.DOCKER_USERNAME }}
