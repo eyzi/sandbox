@@ -70,6 +70,6 @@ jobs:
         with:
           tags: ${{ steps.image_tag.outputs.tag_semver }}
       - name: Tag image as latest
-        run: docker tag ${{ steps.docker_build.outputs.digest }} ${{ steps.image_tag.outputs.tag_latest }}
+        run: docker tag ${{ steps.image_tag.outputs.tag_semver }} ${{ steps.image_tag.outputs.tag_latest }}
       - name: Push docker image
         run: docker push ${{ steps.image_tag.outputs.tag_semver }}
