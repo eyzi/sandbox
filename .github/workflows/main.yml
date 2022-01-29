@@ -44,13 +44,29 @@ jobs:
           yarn release
           git push --follow-tags origin main
 
-  # build:
-  #   name: Build Image
-  #   runs-on: self-hosted
-  #   needs: [test]
-  #   if: "contains(github.event.head_commit.message, 'chore(release)')"
-  #   steps:
-  #     - name: Build the Docker image
-  #       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-  #     - name: Push Docker image
-  #       run: docker push {{ $docker_registry }}/sandbox:{{ $package_version }}
+  build:
+    name: Build Image
+    runs-on: self-hosted
+    needs: [test]
+    if: "contains(github.event.head_commit.message, 'chore(release)')"
+    steps:
+      - uses: borales/actions-yarn@v2.3.0
+        name: Build code
+        with:
+          cmd: build:clean
+      - name: Get Version
+        id: package_version
+        uses: martinbeentjes/npm-get-version-action@master
+      - name: Set Image Tag
+        id: image_tag
+        run: echo "::set-output tag=${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
+      - name: Login to Docker Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ secrets.DOCKER_REGISTRY }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build docker image
+        run: docker build . --tag {{ steps.image_tag.outputs.tag }}
+      - name: Push docker image
+        run: docker push {{ steps.image_tag.outputs.tag }}
