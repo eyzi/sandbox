@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/eyzi/sandbox/compare/v1.4.0...v1.4.3) (2022-01-29)
+
+
+### Bug Fixes
+
+* **package:** package script for prerelease so it doesn't run on `yarn release` ([7e3a606](https://github.com/eyzi/sandbox/commit/7e3a60612cbfd926bd9d07a5559d1543d5a09a08))
+
 ### [1.4.2](https://github.com/eyzi/sandbox/compare/v1.4.1...v1.4.2) (2022-01-29)
 
 ### [1.4.1](https://github.com/eyzi/sandbox/compare/v1.4.1-0...v1.4.1) (2022-01-29)
