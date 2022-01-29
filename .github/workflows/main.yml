@@ -65,6 +65,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build -t ${{ steps.image_tag.outputs.tag_semver }} -t ${{ steps.image_tag.outputs.tag_latest }} .
+        uses: docker/setup-buildx-action@v1
+        id: docker_build
+        with:
+          tags: ${{ steps.image_tag.outputs.tag_semver }}
+      - name: Tag image as latest
+        run: docker tag ${{ steps.docker_build.outputs.digest }} ${{ steps.image_tag.outputs.tag_latest }}
       - name: Push docker image
         run: docker push ${{ steps.image_tag.outputs.tag_semver }}
