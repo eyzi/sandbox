@@ -50,16 +50,13 @@ jobs:
     needs: [test]
     if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - uses: borales/actions-yarn@v2.3.0
-        name: Build code
-        with:
-          cmd: build:clean
       - name: Get Version
         id: package_version
         uses: martinbeentjes/npm-get-version-action@master
       - name: Set Image Tag
         id: image_tag
-        run: echo "::set-output name=tag::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
+        run: echo "::set-output name=tag_semver::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
+        run: echo "::set-output name=tag_latest::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
       - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
@@ -67,6 +64,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build . --tag ${{ steps.image_tag.outputs.tag }}
+        run: docker build -t ${{ steps.image_tag.outputs.tag_semver }} -t ${{ steps.image_tag.outputs.tag_latest }} .
       - name: Push docker image
-        run: docker push ${{ steps.image_tag.outputs.tag }}
+        run: docker push ${{ steps.image_tag.outputs.tag_semver }}
