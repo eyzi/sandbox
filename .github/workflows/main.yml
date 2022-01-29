@@ -67,6 +67,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build . --tag {{ steps.image_tag.outputs.tag }}
+        run: docker build . --tag ${{ steps.image_tag.outputs.tag }}
       - name: Push docker image
-        run: docker push {{ steps.image_tag.outputs.tag }}
+        run: docker push ${{ steps.image_tag.outputs.tag }}
