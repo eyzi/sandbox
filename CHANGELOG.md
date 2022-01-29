@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/eyzi/sandbox/compare/v1.4.3...v1.5.0) (2022-01-29)
+
+
+### Features
+
+* **actions:** add action to build and push docker image ([f9dbacb](https://github.com/eyzi/sandbox/commit/f9dbacbf9c4ea96094e628437a2f0a4235d50f6a))
+* **build:** add dockerfile and add lib to .gitignore ([450e054](https://github.com/eyzi/sandbox/commit/450e0544387b00b41499d30cc6ce9961b220ec40))
+* **scripts:** add scripts for build and clean ([3cd74b8](https://github.com/eyzi/sandbox/commit/3cd74b811b5694f8152a8d9c4df59e4e929974cd))
+
 ### [1.4.3](https://github.com/eyzi/sandbox/compare/v1.4.0...v1.4.3) (2022-01-29)
 
 
