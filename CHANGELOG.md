@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.10](https://github.com/eyzi/sandbox/compare/v1.5.9...v1.5.10) (2022-01-29)
+
+
+### Bug Fixes
+
+* **actions:** use raw signing key ([6f083ac](https://github.com/eyzi/sandbox/commit/6f083acf0987beba13a071120765d6d0117905ec))
+
 ### [1.5.9](https://github.com/eyzi/sandbox/compare/v1.5.8...v1.5.9) (2022-01-29)
 
 ### [1.5.8](https://github.com/eyzi/sandbox/compare/v1.5.7...v1.5.8) (2022-01-29)
