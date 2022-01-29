@@ -4,9 +4,12 @@
   "version": "1.4.3",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
+    "build": "yarn install && tsc",
+    "build:clean": "yarn clean && yarn build",
+    "clean": "rm -rf lib && rm -rf node_modules",
     "release": "npx standard-version --sign",
-    "release:dev": "npx standard-version --sign --prerelease"
+    "release:dev": "npx standard-version --sign --prerelease",
+    "test": "mocha"
   },
   "mocha": {
     "require": [
