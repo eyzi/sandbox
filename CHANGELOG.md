@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0-0](https://github.com/eyzi/sandbox/compare/v1.3.3...v1.4.0-0) (2022-01-29)
+
+
+### Features
+
+* **value:** update return value ([fd08af4](https://github.com/eyzi/sandbox/commit/fd08af48b9f99fb42c7094a0d64f0601b4c7cc2c))
+
+
+### Bug Fixes
+
+* **value:** update value again ([ee8d5d5](https://github.com/eyzi/sandbox/commit/ee8d5d59048bacb3da99f5b4fb29e2992a112821))
+
 ### [1.3.3](https://github.com/eyzi/sandbox/compare/v1.3.3-0...v1.3.3) (2022-01-29)
 
 ### [1.3.3-0](https://github.com/eyzi/sandbox/compare/v1.3.1...v1.3.3-0) (2022-01-29)
