@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/eyzi/sandbox/compare/v1.5.2...v1.5.3) (2022-01-29)
+
+
+### Bug Fixes
+
+* **actions:** fix run command of image_tag steps ([eef5c5d](https://github.com/eyzi/sandbox/commit/eef5c5d5c90376649581a0f321d2fa75fc9655c9))
+* **actions:** remove build:clean step and add latest tag ([a8a4095](https://github.com/eyzi/sandbox/commit/a8a4095d2e4082941e8e270f4047c4de78360a32))
+
 ### [1.5.2](https://github.com/eyzi/sandbox/compare/v1.5.1...v1.5.2) (2022-01-29)
 
 
