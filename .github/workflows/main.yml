@@ -59,7 +59,7 @@ jobs:
         uses: martinbeentjes/npm-get-version-action@master
       - name: Set Image Tag
         id: image_tag
-        run: echo "::set-output tag=${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
+        run: echo "::set-output name=tag::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
       - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
