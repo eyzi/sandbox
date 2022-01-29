@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.5](https://github.com/eyzi/sandbox/compare/v1.5.4...v1.5.5) (2022-01-29)
+
+
+### Bug Fixes
+
+* **actions:** separate tagging of semver and latest ([512bca9](https://github.com/eyzi/sandbox/commit/512bca9347f433fcd8e8ee57c5e62c405604230e))
+
 ### [1.5.4](https://github.com/eyzi/sandbox/compare/v1.5.3...v1.5.4) (2022-01-29)
 
 
