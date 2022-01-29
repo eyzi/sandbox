@@ -1,4 +1,4 @@
-export const RETURN_VALUE = "Multiple changes";
+export const RETURN_VALUE = "Multiple changes again";
 
 async function run() {
   return RETURN_VALUE;
