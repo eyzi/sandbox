@@ -29,18 +29,15 @@ jobs:
     needs: [test]
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Import GPG signing key
-        continue-on-error: true
-        env:
-          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+      - name: Set local git settings
         run: |
-          echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
-      - name: Bump and Publish
-        run: |
-          git config --local commit.gpgsign true
           git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
           git config --local user.name "${{ secrets.COMMITTER_NAME }}"
+          git config --local user.signingkey "${{ secrets.GPG_SIGNING_KEY2 }}"
+          git config --local commit.gpgsign true
           git remote set-url origin "https://${{secrets.COMMITTER_NAME}}:${{secrets.AUTOVERSION_TOKEN}}@github.com/$GITHUB_REPOSITORY"
+      - name: Bump and Publish
+        run: |
           yarn release
           git push --follow-tags origin main
 
