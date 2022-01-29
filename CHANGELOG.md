@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.7](https://github.com/eyzi/sandbox/compare/v1.5.6...v1.5.7) (2022-01-29)
+
+
+### Bug Fixes
+
+* **actions:** only using latest tag ([78828d5](https://github.com/eyzi/sandbox/commit/78828d59e41139045f74c68c6b1bcd79df4125e8))
+
 ### [1.5.6](https://github.com/eyzi/sandbox/compare/v1.5.5...v1.5.6) (2022-01-29)
 
 
