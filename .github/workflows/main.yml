@@ -51,20 +51,23 @@ jobs:
     if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
       - uses: martinbeentjes/npm-get-version-action@master
-        name: Get Package Version
+        name: Get package version
         id: package_version
-      - name: Set Image Tag
-        id: image_tag
+      - name: Set image tag
+        id: image_name
         run: |
-          echo "::set-output name=tag_semver::${{ secrets.DOCKER_REGISTRY }}/sandbox:${{ steps.package_version.outputs.current-version }}"
-          echo "::set-output name=tag_latest::${{ secrets.DOCKER_REGISTRY }}/sandbox:latest"
+          echo "::set-output name=image_name::${{ secrets.DOCKER_REGISTRY }}/sandbox"
       - uses: docker/login-action@v1
-        name: Login to Docker Registry
+        name: Login to docker registry
         with:
           registry: ${{ secrets.DOCKER_REGISTRY }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build docker image
-        run: docker build -t ${{ steps.image_tag.outputs.tag_latest }} .
-      - name: Push docker image
-        run: docker push ${{ steps.image_tag.outputs.tag_latest }}
+      - name: Build image
+        run: docker build -t new-image .
+      - name: Tag image
+        run: |
+          docker tag new-image ${{ steps.image_name.outputs.image_name }}:latest
+          docker tag new-image ${{ steps.image_name.outputs.image_name }}:${{ steps.package_version.outputs.current-version }}
+      - name: Push image
+        run: docker image push --all-tags ${{ steps.image_name.outputs.image_name }}
