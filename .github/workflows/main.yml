@@ -52,7 +52,7 @@ jobs:
       #     cmd: release
       - name: Publish
         run: |
-          npm run release
+          yarn release
           git push --follow-tags origin main
 
   build:
