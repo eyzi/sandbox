@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: Test
-    runs-on: beatrice
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
         name: Checkout
@@ -25,7 +25,7 @@ jobs:
 
   version:
     name: Version Bump
-    runs-on: beatrice
+    runs-on: self-hosted
     needs: [test]
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
@@ -43,7 +43,7 @@ jobs:
 
   build:
     name: Build Image
-    runs-on: beatrice
+    runs-on: self-hosted
     needs: [test]
     if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
