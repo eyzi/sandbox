@@ -40,7 +40,6 @@ jobs:
           git_user_signingkey: true
           git_commit_gpgsign: true
           git_tag_gpgsign: true
-          git_push_gpgsign: true
       - name: Publish
         run: |
           git config --local gpg.program $(which gpg)
