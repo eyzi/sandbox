@@ -46,12 +46,14 @@ jobs:
           echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
         env:
           GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY2 }}
-      - uses: borales/actions-yarn@v2.3.0
-        name: Bump version
-        with:
-          cmd: release
+      # - uses: borales/actions-yarn@v2.3.0
+      #   name: Bump version
+      #   with:
+      #     cmd: release
       - name: Publish
-        run: git push --follow-tags origin main
+        run: |
+          npm run release
+          git push --follow-tags origin main
 
   build:
     name: Build Image
