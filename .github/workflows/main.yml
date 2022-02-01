@@ -42,7 +42,7 @@ jobs:
           git_tag_gpgsign: true
           git_push_gpgsign: true
       - name: Set gpg program
-        run: git config --local gpg.program gpg2
+        run: git config --local gpg.program /usr/lib/gnupg
       - uses: borales/actions-yarn@v2.3.0
         name: Bump version
         with:
