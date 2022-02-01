@@ -29,13 +29,18 @@ jobs:
     needs: [test]
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Set local git settings
-        run: |
-          git config --local user.email "${{ secrets.COMMITTER_EMAIL }}"
-          git config --local user.name "${{ secrets.COMMITTER_NAME }}"
-          git config --local user.signingkey "${{ secrets.GPG_SIGNING_KEY2 }}"
-          git config --local commit.gpgsign true
-          git remote set-url origin "https://${{secrets.COMMITTER_NAME}}:${{secrets.AUTOVERSION_TOKEN}}@github.com/$GITHUB_REPOSITORY"
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v4
+        id: import_gpg
+        with:
+          gpg_private_key: ${{ secrets.GPG_SIGNING_KEY }}
+          passphrase: ${{ secrets.GPG_PASSWORD }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+          git_push_gpgsign: true
+          git_committer_name: ${{ COMMITTER_NAME }}
+          git_committer_email: ${{ COMMITTER_EMAIL }}
       - uses: borales/actions-yarn@v2.3.0
         name: Bump version
         with:
