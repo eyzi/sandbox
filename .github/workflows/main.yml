@@ -36,10 +36,12 @@ jobs:
           git config --local user.signingkey "${{ secrets.GPG_SIGNING_KEY2 }}"
           git config --local commit.gpgsign true
           git remote set-url origin "https://${{secrets.COMMITTER_NAME}}:${{secrets.AUTOVERSION_TOKEN}}@github.com/$GITHUB_REPOSITORY"
-      - name: Bump and Publish
-        run: |
-          yarn release
-          git push --follow-tags origin main
+      - uses: borales/actions-yarn@v2.3.0
+        name: Bump version
+        with:
+          cmd: release
+      - name: Publish
+        run: git push --follow-tags origin main
 
   build:
     name: Build Image
