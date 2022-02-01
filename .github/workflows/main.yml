@@ -52,6 +52,7 @@ jobs:
       #     cmd: release
       - name: Publish
         run: |
+          git config --local gpg.program $(which gpg)
           yarn release
           git push --follow-tags origin main
 
