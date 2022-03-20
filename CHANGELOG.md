@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/eyzi/sandbox/compare/v1.5.11...v1.6.0) (2022-03-20)
+
+
+### Features
+
+* change return value ([f2c0339](https://github.com/eyzi/sandbox/commit/f2c0339b5de319a1b1c88506659131e6ed453f67))
+
 ### [1.5.11](https://github.com/eyzi/sandbox/compare/v1.5.10...v1.5.11) (2022-02-01)
 
 ### [1.5.10](https://github.com/eyzi/sandbox/compare/v1.5.9...v1.5.10) (2022-01-29)
